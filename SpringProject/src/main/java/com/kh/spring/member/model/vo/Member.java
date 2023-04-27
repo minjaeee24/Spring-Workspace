@@ -35,7 +35,12 @@ import lombok.ToString;
 //@Getter // getter메소드 자동 생성
 //@ToString // toString함수 자동 생성
 //@EqualsAndHashCode // equals, hashcode 자동 생성
-@Data // 위에꺼 다 해줌
+//@Data // 위에꺼 다 해줌
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Member {
 	private int userNo;

@@ -13,7 +13,8 @@
 	
 	<!-- DB연결 설정(3단계) -->
 	<!-- 1단계 DB연결을 위한 도구 설정 
-		 dataSource : java에서 Connection Pool을 지원하기 위한 인터페이스
+		 dataSource : java에서 Connection Pool을 지원하기 위한 인터페이스. 
+		 BasicDataSource : 커넥션풀을 자동으로 관리해주는 객체
 		 destroy-method="close" : 주어진 세션을 자동으로 반환하는 설정
 	-->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
