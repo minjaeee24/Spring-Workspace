@@ -5,7 +5,7 @@
 		<id column="USER_NO" property="userNo"/>
 		<result column="USER_ID" property="userId" />
 		<result column="USER_PWD" property="userPwd"/>
-		<result column="NIKE_NAME" property="nickName"/>
+		<result column="NICK_NAME" property="nickName"/>
 		<result column="PROFILE_IMG" property="profileImage"/>
 		<result column="PHONE" property="phone"/>
 		<result column="ADDRESS" property="address"/>
@@ -24,8 +24,18 @@
 		SELECT *
 		FROM MEMBER
 		WHERE USER_ID = #{userId} AND
-			  USER_PWD = #{userPwd} AND
+			  <!-- USER_PWD = #{userPwd} AND -->
 			  STATUS = 'Y'
 	</select>
 	
+	<insert id="insertMember" parameterType="member">
+		INSERT INTO MEMBER
+		VALUES( SEQ_UNO.NEXTVAL, #{userId}, #{userPwd}, #{nickName}, #{phone}, #{address}, DEFAULT, DEFAULT, NULL, DEFAULT )
+	</insert>
+	
+	<select id="selectAll" resultMap="memberResultSet">
+		SELECT *
+		FROM MEMBER
+		WHERE STATUS = 'Y'
+	</select>
 </mapper>

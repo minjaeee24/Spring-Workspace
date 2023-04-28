@@ -16,7 +16,9 @@
 	
 	<typeAliases>
 		<typeAlias type="com.kh.spring.member.model.vo.Member" alias="member"/>
-		
+		<typeAlias type="com.kh.spring.board.model.vo.Board" alias="board"/>
+		<typeAlias type="com.kh.spring.board.model.vo.BoardType" alias="boardType"/>
+		<typeAlias type="com.kh.spring.board.model.vo.BoardImg" alias="boardImg"/>
 	</typeAliases>
 	
 	<!-- 
@@ -28,6 +30,7 @@
 	<mappers>
 		<!-- 실행시킬 mapper파일 등록 -->
 		<mapper resource="/mappers/member-mapper.xml"/>
+		<mapper resource="/mappers/board-mapper.xml"/>
 	</mappers>
 	
 </configuration>
