@@ -31,7 +31,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<!-- 
-		base-package에 등록된 패키지와 그 하위 패키지 모두 감시(scan)해서 빈으로 등록가능항 클래스들은 spring-bean객체로
+		base-package에 등록된 패키지와 그 하위 패키지 모두 감시(scan)해서 빈으로 등록가능함. 클래스들은 spring-bean객체로
 		등록해둠
 	-->
 	<context:component-scan base-package="com.kh.spring" />
