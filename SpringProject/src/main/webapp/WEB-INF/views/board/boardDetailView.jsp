@@ -84,7 +84,7 @@
 						조회수
 					</th>
 					<td>
-						${b.count }
+						${ b.count }
 					</td>
 				</tr>
 				<tr>
