@@ -24,7 +24,7 @@
 	<result column="BOARD_NO" property="boardNo"/>
 	<result column="BOARD_TITLE" property="boardTitle"/>
 	<result column="BOARD_WRITER" property="boardWriter"/>
-	<result column="NICE_NAME" property="nikeName"/>
+	<result column="NICK_NAME" property="nickName"/>
 	<result column="COUNT" property="count"/>
 	<result column="CREATE_DATE" property="createDate"/>
 	<result column="BOARD_CONTENT" property="boardContent"/>

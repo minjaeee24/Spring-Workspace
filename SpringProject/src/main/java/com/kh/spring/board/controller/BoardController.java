@@ -2,14 +2,16 @@ package com.kh.spring.board.controller;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +33,7 @@ public class BoardController{
 	@Autowired
 	private BoardService boardService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	/*
 	 * 게시글목록 조회 서비스
 	 * 
@@ -187,6 +190,8 @@ public class BoardController{
 		String serverFolderPath = session.getServletContext().getRealPath(webPath);
 		b.setBoardCd(boardCode);
 		
+		logger.info("insert함수 실행");
+		
 		int result = 0;
 		
 		if(mode.equals("insert")) {
@@ -195,7 +200,7 @@ public class BoardController{
 			try {
 				result = boardService.insertBoard(b, imgList, webPath, serverFolderPath);
 			}catch(Exception e) {
-				System.out.println("에러발생");
+				logger.error("insert메소드 에러");
 			}
 			
 		}else {
@@ -204,7 +209,7 @@ public class BoardController{
 			try {
 				result = boardService.updateBoard(b, imgList, webPath, serverFolderPath, deleteList);
 			} catch (Exception e) {
-				e.printStackTrace();
+				logger.error("update메소드 에러");
 			}
 			
 		}
