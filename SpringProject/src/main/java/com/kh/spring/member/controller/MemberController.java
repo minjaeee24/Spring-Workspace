@@ -419,7 +419,7 @@ public class MemberController {
 	
 	@Scheduled(fixedDelay = 1000)
 	public void test() {
-		System.out.println("1초마다 출력하기 " + count++);
+		// System.out.println("1초마다 출력하기 " + count++);
 	}
 	
 	// crontab방식
