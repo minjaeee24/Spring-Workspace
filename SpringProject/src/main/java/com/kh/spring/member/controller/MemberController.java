@@ -7,8 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.quartz.JobExecutionContext;
+import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +35,7 @@ import com.kh.spring.member.model.vo.Member;
 // 로그인과 회원가입기능 완료 후 실행될 코드
 @SessionAttributes({"loginUser"})
 
-public class MemberController {
+public class MemberController extends QuartzJobBean{
 
 //	public void test() {
 //		Member m = new Member().builder().address("추가할 값").userId("dd").build();
@@ -62,7 +65,7 @@ public class MemberController {
 	 * 		 2) 무분별한 주입시 의존관계 확인이 어렵다
 	 * 
 	 */
-	// @Autowired // bean으로 등록된 객체 중 타입이 같거나 상속관계인 bean을 자동으로 주입해주는 역할
+	//@Autowired // bean으로 등록된 객체 중 타입이 같거나 상속관계인 bean을 자동으로 주입해주는 역할
 	private MemberService memberService;
 	
 	private BCryptPasswordEncoder bcryptPasswordEncoder; 
@@ -97,7 +100,7 @@ public class MemberController {
 	 */
 	
 	@Autowired
-	public void setMemeberService(MemberService memberService) {
+	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}
 	
@@ -415,16 +418,32 @@ public class MemberController {
 	}
 	
 	// 고정방식(spring-schedler)
-	public int count = 0;
-	
-	@Scheduled(fixedDelay = 1000)
-	public void test() {
-		// System.out.println("1초마다 출력하기 " + count++);
-	}
+//	public int count = 0;
+//	
+//	@Scheduled(fixedDelay = 1000)
+//	public void test() {
+//		// System.out.println("1초마다 출력하기 " + count++);
+//	}
 	
 	// crontab방식
 	public void testCron() {
 		System.out.println("크론 테스트");
+	}
+	
+	public void testQuartz() {
+		System.out.println("콰츠 테스트");
+	}
+	
+	/*
+	 * 회원정보 확인 스케쥴러
+	 * 매일 오전 1시에 모든 사용자의 정보를 검색하여 사용자가 비밀번호를 안 바꾼지 3개월이 지났다면
+	 * Member테이블의 changePwd의 값을 y로 변경
+	 * 
+	 * 로그인할때 changePwd의 값이 Y라면 비밀번호 변경 페이지로 이동(이건 안 함)
+	 */
+	@Override
+	public void executeInternal(JobExecutionContext context) throws JobExecutionException {
+		memberService.updateMemberChangePwd();
 	}
 	
 }

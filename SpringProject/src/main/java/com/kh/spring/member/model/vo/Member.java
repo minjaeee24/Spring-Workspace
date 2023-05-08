@@ -53,5 +53,5 @@ public class Member {
 	private Date modifyDate;
 	private String status;
 	private String profileImage;
-	
+	//private String changePwd;
 }

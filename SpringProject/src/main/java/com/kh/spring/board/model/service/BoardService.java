@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.spring.board.model.vo.Board;
+import com.kh.spring.board.model.vo.BoardImg;
 import com.kh.spring.board.model.vo.BoardType;
 
 public interface BoardService {
@@ -24,4 +25,6 @@ public interface BoardService {
 	public int insertBoard(Board b, List<MultipartFile> list, String webPath, String serverFolderPath) throws Exception;
 	
 	public int updateBoard(Board b, List<MultipartFile> list, String webPath, String serverFolderPath, String deleteList) throws Exception;
+	
+	public ArrayList<BoardImg> selectBoardImg();
 }
