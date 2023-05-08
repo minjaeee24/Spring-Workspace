@@ -30,7 +30,7 @@ public class Test {
 	 * * : 모든 | 아무값
 	 * .. : 하위 | 아래(하위패키지) | 0개 이상의 매개변수
 	 * 
-	 * @Before : PointCut에 지정된 메소드가 수행되기 '전'에 addvice수행을 명시하는 어노테이션
+	 * @Before : PointCut에 지정된 메소드가 수행되기 '전'에 advice수행을 명시하는 어노테이션
 	 * 
 	 * com.kh.spring.board패키지 아래에 있는 Impl로 끝나는 클래스의 모든 메소드(매개변수와 상관없이) 포인트컷 지정
 	 */
