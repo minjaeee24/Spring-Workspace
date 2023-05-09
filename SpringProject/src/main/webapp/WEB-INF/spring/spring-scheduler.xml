@@ -18,7 +18,7 @@
 		1. 셋팅 : Namespaces : xmlns:task, context스키마 등록 + 스키마로케이션까지 등록
 		2. annotation활성화 -> task
 		3. 스케쥴러로 사용할 클래스를 빈 객체로 등록
-		4. web.xml에서 프로그램 구동시 spring-sceduler를 추가시킨다.
+		4. web.xml에서 프로그램 구동시 spring-scheduler를 추가시킨다.
 		5. 스케쥴링을 원하는 메소드에 가서 schedule어노테이션 추가하기
 		6. 원하는 실행방식을 결정하여 스케쥴링하기(고정방식, crontab방식이 있음)
 	-->

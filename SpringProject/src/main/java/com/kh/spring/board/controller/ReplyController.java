@@ -38,12 +38,20 @@ public class ReplyController {
 	// 댓글 조회 기능
 	@GetMapping("/selectReplyList")
 	public String selectReplyList(int bno) {
-		
 		List<Reply> rList = replyService.selectReplyList(bno);
 		return new Gson().toJson(rList);
 	}
 	
 	// 댓글 삭제 기능
+	@GetMapping("/delete")
+	public int deleteReply(int replyNo) {
+		return replyService.deleteReply(replyNo);
+	}
 	
 	// 댓글 수정 기능
+	@PostMapping("/update")
+	public int updateReply(Reply reply) {
+		return replyService.updateReply(reply);
+	}
+	
 }
