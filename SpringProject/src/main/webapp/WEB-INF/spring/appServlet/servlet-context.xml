@@ -23,7 +23,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	
 	<!-- 
-		주소 자동완성 도우
+		주소 자동완성 도구
 		매번 같은 주소(/WEB-INF/views/)를 추가해야하기 때문에 자동완성이 기본적으로 등록되어있음
 		- view resolver라는 도구를 등록(spring 제공)
 		- class : InternalResourceViewResolver

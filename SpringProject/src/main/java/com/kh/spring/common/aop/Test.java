@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component // 런타임시 필요한 위치에 코드를 끼워넣을 수 있도록 bean으로 등록시켜주기
 @Aspect // 공통관심사가 작성된 클래스임을 명시
 		// * 공통관심사란? 특정 흐름 사이에 끼여서 수행할 코드
-		// Aspect어토테이션이 붙은 클래스에는 실행할 코드(advice)와 pointCut이 정의되어있어야 한다
+		// Aspect어노테이션이 붙은 클래스에는 실행할 코드(advice)와 pointCut이 정의되어있어야 한다
 		// advice(끼어들어서 실제로 수행할 메소드, 코드)
 		// @PointCut(advice가 끼어들어서 수행될 클래스, 메소드 위치 등을 정의)
 public class Test {
